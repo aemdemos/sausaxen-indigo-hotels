@@ -1,57 +1,41 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header
+  // Cards (cards5) header
   const headerRow = ['Cards (cards5)'];
+  const rows = [headerRow];
 
-  // Find the carousel track containing the cards
-  const carouselList = element.querySelector('ul.react-multi-carousel-track');
-  if (!carouselList) return;
+  // Find the carousel list of cards
+  const carousel = element.querySelector('.vms_carousel_container');
+  if (!carousel) return;
+  const ul = carousel.querySelector('ul');
+  if (!ul) return;
+  const lis = Array.from(ul.children);
 
-  // Get all visible card items
-  const cardItems = Array.from(carouselList.querySelectorAll('li[aria-hidden="false"]'));
+  lis.forEach(li => {
+    // Find the anchor (card link)
+    const a = li.querySelector('a');
+    if (!a) return;
+    // Get the image element
+    const img = a.querySelector('img');
+    // Get the title inside the card
+    const titleDiv = a.querySelector('.Home_from-our-blogs-heading__OIPFD');
+    // Defensive: skip if no image or no title
+    if (!img || !titleDiv) return;
+    // Use the image element directly
+    // For text, create a fragment containing a <strong> with title, hyperlinked
+    const link = document.createElement('a');
+    link.href = a.href;
+    link.target = a.target || '_blank';
+    const strong = document.createElement('strong');
+    strong.textContent = titleDiv.textContent.trim();
+    link.appendChild(strong);
+    // For the cell, use a fragment (preserves structure)
+    const frag = document.createDocumentFragment();
+    frag.appendChild(link);
 
-  // Build table rows for each card
-  const rows = cardItems.map(li => {
-    // The anchor tag that wraps the card
-    const anchor = li.querySelector('a');
-    // The image inside the card
-    const img = anchor ? anchor.querySelector('img') : null;
-    // The title (in a div inside the card)
-    let textCellContent;
-    const titleDiv = anchor ? anchor.querySelector('.Home_from-our-blogs-heading__OIPFD') : null;
-    if (titleDiv) {
-      // Strong element for the title
-      const strong = document.createElement('strong');
-      strong.textContent = titleDiv.textContent;
-      // Put the strong inside a paragraph for structure
-      const textContainer = document.createElement('div');
-      textContainer.appendChild(strong);
-      textCellContent = textContainer;
-    } else {
-      // Fallback: empty cell
-      textCellContent = '';
-    }
-    // If the anchor wraps the card, link the text title as in the component spec
-    if (anchor && textCellContent) {
-      // Wrap strong/title in a link
-      const link = document.createElement('a');
-      link.href = anchor.href;
-      link.target = anchor.target || '_blank';
-      // Move all textContainer children into the link
-      while (textCellContent.firstChild) {
-        link.appendChild(textCellContent.firstChild);
-      }
-      textCellContent.appendChild(link);
-    }
-    return [img, textCellContent];
+    rows.push([img, frag]);
   });
 
-  // Compose the table
-  const table = WebImporter.DOMUtils.createTable([
-    headerRow,
-    ...rows
-  ], document);
-
-  // Replace the original element with the new table
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

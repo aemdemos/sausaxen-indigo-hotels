@@ -1,69 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the main search widget container
-  const container = element.querySelector('.ig-search-widget-main-container, .SearchWidget_search-widget-container__7Zm9O');
-  if (!container) return;
+  // Find the main container that holds the search widget sections
+  const mainContainer = element.querySelector('.ig-search-widget-main-container');
+  if (!mainContainer) return;
 
-  // We'll build an array containing the four content columns in the order:
-  // 1. Destination/Property 2. Check-in 3. Check-out 4. Guests/Rooms 5. Search button
-  // We'll extract their main content, reference existing elements
-  const fields = [];
+  // Prepare an array for the columns
+  const columns = [];
 
-  // 1. Destination or Property Name
-  const destinationWrap = container.querySelector('.SearchWidget_input-field-container__t2VBZ');
-  if (destinationWrap) {
-    fields.push(destinationWrap);
-  } else {
-    fields.push('');
+  // 1. Destination or Property Name (leftmost column)
+  const destination = mainContainer.querySelector('.SearchWidget_input-field-container__t2VBZ');
+  if (destination) columns.push(destination);
+
+  // 2. Check-in and Check-out columns (two columns)
+  const dateInputs = mainContainer.querySelectorAll('.vms_DateRangeCalendar_InputContainer');
+  dateInputs.forEach(input => {
+    columns.push(input);
+  });
+
+  // 3. No. of Guests & Rooms
+  const guests = mainContainer.querySelector('.SearchWidget_pax-selection-container__ZSUnO');
+  if (guests) columns.push(guests);
+
+  // 4. Search Button
+  const searchBtnContainer = mainContainer.querySelector('.SearchWidget_search-hotels-btn-container__E_PDQ');
+  if (searchBtnContainer) columns.push(searchBtnContainer);
+
+  // If any columns are missing, fallback to the immediate children of mainContainer
+  let columnRow = columns;
+  if (columns.length < 5) {
+    columnRow = Array.from(mainContainer.children);
   }
 
-  // 2. Check-in Date
-  let checkinWrap = null;
-  const dateFields = container.querySelectorAll('.vms_DateRangeCalendar_InputContainer');
-  if (dateFields.length > 0) {
-    checkinWrap = dateFields[0];
-    fields.push(checkinWrap);
-  } else {
-    fields.push('');
-  }
+  // The header row should be a single column with 'Columns'
+  // The second row should have the extracted columns
+  const table = WebImporter.DOMUtils.createTable([
+    ['Columns'],
+    columnRow
+  ], document);
 
-  // 3. Check-out Date
-  let checkoutWrap = null;
-  if (dateFields.length > 1) {
-    checkoutWrap = dateFields[1];
-    fields.push(checkoutWrap);
-  } else {
-    fields.push('');
-  }
-
-  // 4. Guests & Rooms
-  const guestsWrap = container.querySelector('.SearchWidget_pax-selection-container__ZSUnO');
-  if (guestsWrap) {
-    fields.push(guestsWrap);
-  } else {
-    fields.push('');
-  }
-
-  // 5. Search Button
-  const searchBtnWrap = container.querySelector('.SearchWidget_search-hotels-btn-container__E_PDQ');
-  if (searchBtnWrap) {
-    fields.push(searchBtnWrap);
-  } else {
-    // fallback: just the button itself if main wrapper is not there
-    const searchBtn = container.querySelector('.SearchWidget_search-btn__x8_il, button[type="submit"]');
-    if (searchBtn) {
-      fields.push(searchBtn);
-    } else {
-      fields.push('');
-    }
-  }
-
-  // Compose table rows: single-cell header, then a single row for the columns
-  const cells = [
-    ['Columns'],   // header row: exactly one cell
-    fields         // second row: one cell per column
-  ];
-
-  const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }
