@@ -1,4 +1,5 @@
 
+
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -158,3 +159,112 @@
     border-radius: 0 0 12px 12px;
   }
 }
+
+.cards.cards4 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.cards.cards4 > ul > li {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  aspect-ratio: 4 / 3;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cards.cards4 .cards-card-image,
+.cards.cards4 .cards-card-image picture,
+.cards.cards4 .cards-card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+.cards.cards4 > ul > li::before {
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 30%;
+  width: 100%;
+  background: linear-gradient(to top, rgb(0 0 0 / 85%) 50%, rgb(0 0 0 / 0%) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cards.cards4 .cards-card-body {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 8px;
+  z-index: 3;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: Poppins, Arial, sans-serif;
+  letter-spacing: 0;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  background: none;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 70%);
+  line-height: 1.2;
+  pointer-events: none;
+  display: block;
+}
+
+.cards.cards4 .cards-card-body p,
+.cards.cards4 .cards-card-body strong {
+  margin: 0;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.cards.cards4 > ul > li:not(:has(.cards-card-image img)) {
+  background: #181818;
+  min-height: 0;
+}
+
+/* Responsive: stack cards on smaller screens and keep width compact */
+@media (width <= 900px) {
+  .cards.cards4 > ul {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .cards.cards4 > ul > li {
+    min-width: 180px;
+    max-width: 340px;
+    width: 100%;
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.cards.cards4 {
+}
+
