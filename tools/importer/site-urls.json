@@ -1,0 +1,17 @@
+{
+  "originUrl": "https://www.goindigo.in",
+  "urls": [
+    {
+      "url": "https://www.goindigo.in/hotels",
+      "source": "MANUAL",
+      "targetPath": "/hotels",
+      "id": "2549f42768e43ba0f1992194f3cc6193c2a7894a"
+    }
+  ],
+  "crawlOptions": {
+    "strategy": "manual",
+    "strategiesAttempted": [
+      "MANUAL"
+    ]
+  }
+}
