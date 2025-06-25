@@ -407,3 +407,123 @@
 /* Merged .cards.cards3 selector (removes duplicates, uses latest values) */
 .cards.cards3 {
 }
+
+.cards.cards4 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.cards.cards4 > ul > li {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  aspect-ratio: 4 / 3;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cards.cards4 .cards-card-image,
+.cards.cards4 .cards-card-image picture,
+.cards.cards4 .cards-card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+.cards.cards4 > ul > li::before {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 27%;
+  width: 100%;
+  background: linear-gradient(to top, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 0%) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cards.cards4 .cards-card-body {
+  position: absolute;
+  left: 8px;
+  right: 10px;
+  bottom: 8px;
+  z-index: 3;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Poppins, Arial, sans-serif;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  background: none;
+  line-height: 1.1;
+  pointer-events: none;
+  display: block;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 18%);
+}
+
+.cards.cards4 .cards-card-body p, 
+.cards.cards4 .cards-card-body strong {
+  margin: 0;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.cards.cards4 > ul > li:not(:has(.cards-card-image img)) {
+  background: #181818;
+  min-height: 0;
+}
+
+/* Responsive: stack cards vertically on smaller screens, keep proportions */
+@media (width <= 900px) {
+  .cards.cards4 > ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .cards.cards4 > ul > li {
+    min-width: 160px;
+    max-width: 340px;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+  }
+
+  .cards.cards4 .cards-card-body {
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  .cards.cards4 > ul > li::before {
+    height: 28%;
+  }
+}
+
+.cards.cards4 {
+}
