@@ -1,4 +1,5 @@
 
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -37,11 +38,10 @@
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 24px 0 rgb(0 0 0 / 6%);
-  min-height: 111px;
+  padding: 0;
   width: 100%;
   overflow: visible;
-  display: block;
-  padding: 0;
+  font-family: Poppins, "Poppins-Regular Fallback", Arial, sans-serif;
 }
 
 .columns.columns2 > div {
@@ -169,3 +169,215 @@
 .columns.columns2 * {
   font-family: Poppins, "Poppins-Regular Fallback", Arial, sans-serif;
 }
+
+.columns.columns2 {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px 0 rgb(0 0 0 / 6%);
+  padding: 0;
+  width: 100%;
+  overflow: visible;
+  font-family: Poppins, "Poppins-Regular Fallback", Arial, sans-serif;
+}
+
+/* Main flex row */
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100px;
+}
+
+/* Column cell base styling */
+.columns.columns2 > div > div {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 22px;
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+}
+
+/* Dividers */
+.columns.columns2 > div > div:not(:last-child) {
+  border-right: 1px solid #E0E0E0;
+}
+
+/* First column: Destination */
+.columns.columns2 > div > div:first-child {
+  border-radius: 12px 0 0 12px;
+  cursor: pointer;
+  min-width: 200px;
+  justify-content: center;
+}
+
+/* Destination label */
+.columns.columns2 > div > div:first-child p:first-child {
+  color: #9e9e9e;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0 0 6px;
+  line-height: 1.15;
+}
+
+/* Destination value */
+.columns.columns2 > div > div:first-child p:last-child {
+  color: #001a96;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+/* Second & third columns: Dates */
+.columns.columns2 > div > div:nth-child(2),
+.columns.columns2 > div > div:nth-child(3) {
+  min-width: 140px;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+/* Dates: visually simulate value separation and pop */
+.columns.columns2 > div > div:nth-child(2) p,
+.columns.columns2 > div > div:nth-child(3) p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: 15px;
+  color: #757575;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+}
+
+@media (width >= 900px) {
+  .columns.columns2 > div > div:nth-child(2) p,
+  .columns.columns2 > div > div:nth-child(3) p {
+    font-size: 15px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    line-height: 1.65;
+  }
+}
+
+/* Guests/Rooms column */
+.columns.columns2 > div > div:nth-child(4) {
+  min-width: 180px;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+/* Guests/Rooms label */
+.columns.columns2 > div > div:nth-child(4) p:first-child {
+  color: #9e9e9e;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0 0 6px;
+  line-height: 1.15;
+}
+
+/* Guests/Rooms value */
+.columns.columns2 > div > div:nth-child(4) p:last-child {
+  color: #001a96;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+/* Last column: Search button */
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 265px;
+  padding: 0 18px;
+  flex: 1.7 1 0;
+}
+
+/* Search button itself */
+.columns.columns2 > div > div:last-child p {
+  background: #0023A3;
+  color: #fff;
+  border-radius: 16px;
+  padding: 20px 62px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  min-height: 60px;
+  min-width: 180px;
+  text-align: center;
+  line-height: 1.3;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.columns.columns2 > div > div:last-child p:hover {
+  background: #001a96;
+}
+
+/* Add a faint dropdown icon background to date and guest columns (SVG background-image). */
+.columns.columns2 > div > div:nth-child(2),
+.columns.columns2 > div > div:nth-child(3),
+.columns.columns2 > div > div:nth-child(4) {
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px 14px;
+}
+
+.columns.columns2 > div > div:nth-child(2) {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='14' width='14' xmlns='http://www.w3.org/2000/svg'><path d='M2 5l5 5 5-5'/></svg>");
+}
+
+.columns.columns2 > div > div:nth-child(3) {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='14' width='14' xmlns='http://www.w3.org/2000/svg'><path d='M2 5l5 5 5-5'/></svg>");
+}
+
+.columns.columns2 > div > div:nth-child(4) {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='14' width='14' xmlns='http://www.w3.org/2000/svg'><path d='M2 5l5 5 5-5'/></svg>");
+}
+
+/* Responsive: stack on mobile */
+@media (width <= 900px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .columns.columns2 > div > div {
+    border-right: none;
+    border-bottom: 1px solid #E0E0E0;
+    padding: 18px 12px;
+    border-radius: 0;
+    min-width: 0;
+    background-image: none;
+  }
+
+  .columns.columns2 > div > div:last-child {
+    border-bottom: none;
+    justify-content: flex-end;
+    align-items: stretch;
+    padding-bottom: 24px;
+    min-width: unset;
+  }
+}
+
+/* Make sure text blocks are centered vertically in their columns */
+.columns.columns2 > div > div p {
+  display: block;
+  vertical-align: middle;
+}
+
