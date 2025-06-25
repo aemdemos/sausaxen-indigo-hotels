@@ -1,4 +1,5 @@
 
+
 footer {
   background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
@@ -20,16 +21,24 @@ footer .footer p {
   }
 }
 
+/* merged .footer selector */
 .footer {
-  background: linear-gradient(to bottom, #fff 0%, #c6eaff 100%);
-  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    #fff 0%,
+    #fff 45%,
+    #cdefff 100%
+  );
   min-height: 100vh;
-  padding: 0;
+  width: 100%;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  display: block;
 }
 
-/* Remove background, margin, max-width, and padding from all direct children */
+/* end merged .footer */
+
 .footer > div,
 .footer > div > div,
 .footer .section {
@@ -41,12 +50,10 @@ footer .footer p {
   box-sizing: border-box;
 }
 
-/* Ensure there is no unwanted centering or spacing inside the block's default structure */
 .footer > div {
   display: block;
 }
 
-/* Remove any unwanted border radius or shadows that could create a white box effect */
 .footer > div,
 .footer > div > div,
 .footer .section {
@@ -55,11 +62,25 @@ footer .footer p {
   border: none;
 }
 
-.footer {
-  background: linear-gradient(to bottom, #fff 0%, #c6eaff 100%);
-  width: 100%;
-  min-height: 100vh;
-  padding: 0;
+/* Remove backgrounds, shadows, and borders from children for pure gradient effect */
+.footer > div,
+.footer > div > div,
+.footer .section {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
   margin: 0;
+  padding: 0;
+  max-width: none;
+  width: 100%;
   box-sizing: border-box;
 }
+
+/* Clear accidental background overrides in nested elements */
+.footer * {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
