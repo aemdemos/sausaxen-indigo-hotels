@@ -1,0 +1,152 @@
+{
+  "fragments": [
+    {
+      "name": "nav",
+      "path": "/nav",
+      "instances": [
+        {
+          "url": "https://www.goindigo.in/hotels",
+          "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+          "uuid": "2549f427-00-c1ceae65c0f00fe0f1e24d0cc17259f975bb0657",
+          "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "footer",
+      "path": "/footer",
+      "instances": [
+        {
+          "url": "https://www.goindigo.in/hotels",
+          "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+          "uuid": "2549f427-11-07c557d6636fc1961324aaf292245586a3c75f16",
+          "xpath": "/html[1]/body[1]/div[1]/div[1]/div[2]"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "unknown",
+      "cluster": 1,
+      "instances": [
+        {
+          "url": "https://www.goindigo.in/hotels",
+          "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+          "uuid": "2549f427-01-496e95f33e2fd2e6094d06830ef5028312e52a48",
+          "xpath": "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/header[1]"
+        }
+      ]
+    },
+    {
+      "name": "Columns",
+      "cluster": 2,
+      "source": "Columns",
+      "target": "Columns",
+      "key": "columns2",
+      "instances": [
+        {
+          "url": "https://www.goindigo.in/hotels",
+          "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+          "uuid": "2549f427-02-7f61852d1d2350dee972cdaab49ca4f7bbcbf3dc",
+          "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 3,
+      "source": "Cards",
+      "target": "Cards (cards3)",
+      "key": "cards3",
+      "instances": [
+        {
+          "url": "https://www.goindigo.in/hotels",
+          "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+          "uuid": "2549f427-04-40b49e567b5258fa802c7e019dc82d760b5d7c99",
+          "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 4,
+      "source": "Cards",
+      "target": "Cards (cards4)",
+      "key": "cards4",
+      "instances": [
+        {
+          "url": "https://www.goindigo.in/hotels",
+          "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+          "uuid": "2549f427-06-aab213dd881e1ea30f92f0bc5dfc2a374bb1960b",
+          "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"
+        },
+        {
+          "url": "https://www.goindigo.in/hotels",
+          "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+          "uuid": "2549f427-07-64371fe8aa26d74fe5bf8cde15d1c7232d29e53e",
+          "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 5,
+      "source": "Cards",
+      "target": "Cards (cards5)",
+      "key": "cards5",
+      "instances": [
+        {
+          "url": "https://www.goindigo.in/hotels",
+          "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+          "uuid": "2549f427-09-6b87f60d0a73970bebaf9adfbdfccf52f6ebc87c",
+          "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 6,
+      "instances": [
+        {
+          "url": "https://www.goindigo.in/hotels",
+          "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+          "uuid": "2549f427-10-b4845f5561bf619058e53b5c082f05b778269446",
+          "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[4]"
+        }
+      ]
+    }
+  ],
+  "outliers": [
+    {
+      "url": "https://www.goindigo.in/hotels",
+      "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+      "uuid": "2549f427-00-c1ceae65c0f00fe0f1e24d0cc17259f975bb0657",
+      "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"
+    },
+    {
+      "url": "https://www.goindigo.in/hotels",
+      "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+      "uuid": "2549f427-03-b9a501296ec70ac9adde3edbcecc969db85cfeab",
+      "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h2[1]"
+    },
+    {
+      "url": "https://www.goindigo.in/hotels",
+      "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+      "uuid": "2549f427-05-81241bdbebf99dc4f0c0817e43dcea2436c0bf14",
+      "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]"
+    },
+    {
+      "url": "https://www.goindigo.in/hotels",
+      "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+      "uuid": "2549f427-08-5ee5ac89d1f711f3838ca1409da10367b1e00fec",
+      "xpath": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/h2[1]"
+    },
+    {
+      "url": "https://www.goindigo.in/hotels",
+      "urlHash": "2549f42768e43ba0f1992194f3cc6193c2a7894a",
+      "uuid": "2549f427-11-07c557d6636fc1961324aaf292245586a3c75f16",
+      "xpath": "/html[1]/body[1]/div[1]/div[1]/div[2]"
+    }
+  ]
+}
