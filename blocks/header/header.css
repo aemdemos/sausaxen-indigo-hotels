@@ -1,4 +1,5 @@
 
+
 /* header and nav layout */
 header .nav-wrapper {
   background-color: var(--background-color);
@@ -424,6 +425,9 @@ header nav .nav-tools {
 /* ========== MERGED .header SELECTOR ========== */
 
 .header {
-  display: flex;
+  background: #fff;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
